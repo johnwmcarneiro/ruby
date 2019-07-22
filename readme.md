@@ -110,7 +110,7 @@ Um tipo que nos permite armazenar uma lista ordenada de dados em um único objet
     bitcode_array[2]
 ```
 
-## Symbol
+### Symbol
 É um tipo de dado semelhante a String, com a diferença de que ele é um __objeto imútavel__. Duas strings idênticas podem ser objetos diferentes, mas um símbolo é apenas um objeto, ocupando sempre o mesmo espaço na mémoria.
 ``` ruby
     onebit_symbol = :ruby_symbol
