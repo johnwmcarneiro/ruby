@@ -127,3 +127,59 @@ Tipo que representa uma coleção de dados organizados por chaves únicas e seus
     onebit_hash = {course: 'ruby', language: 'pt-br', locale: 'onebitcode.com'}
     onebit_hash[:locale]
 ```
+
+## Tipagem Dinâmica
+No ruby não é preciso definir o tipo de dado antes de atribuir um valor à uma variável. O tipo é dinâmico, ou seja, ele é definido de acordo com o dado atribuído.
+``` ruby
+    onebit_dynamic = 2
+    onebit_dinamic.class
+    onebit_dynamic = "String type"
+    onebit_dynamic.class
+    onebit_dynamic = :onebit_symbol
+    onebit_dynamic.class
+```
+
+## Operadores Matemáticos
+__1. Soma__
+``` ruby
+    -5 + 10
+```
+
+__2. Subtração__
+``` ruby
+    1 - 2
+```
+
+__3. Multiplicação__
+``` ruby
+    -2 * -2
+```
+
+__4. Divisão__
+``` ruby
+    10 / 2
+```
+
+__5. Módulo__
+``` ruby
+    10 % 3
+```
+
+__6. Potencialização__
+``` ruby
+    2**3
+```
+
+__7. Operações__
+``` ruby
+    2**3 + 2 * 3
+```
+
+# Estruturas de Controle
+Tratam-se de códigos que escrevemos em nossos programas para analisar dados e decidir qual caminho seguir. Divide-se em dois tipos, __Condicional__ e __Iteração__
+
+## Condicional
+Tipo de estrutura de controle que executa um trecho de código dependendo do resultado de uma condição.
+
+## Interação
+Tipo de estrutura de controle que gerencia quantas vezes o trecho de código será executado.
