@@ -176,10 +176,32 @@ __7. Operações__
 ```
 
 # Estruturas de Controle
-Tratam-se de códigos que escrevemos em nossos programas para analisar dados e decidir qual caminho seguir. Divide-se em dois tipos, __Condicional__ e __Iteração__
+Tratam-se de códigos que escrevemos em nossos programas para analisar dados e decidir qual caminho seguir. Divide-se em dois tipos, __Condicional__ e __Iteração__.
 
 ## Condicional
 Tipo de estrutura de controle que executa um trecho de código dependendo do resultado de uma condição.
+ - if  
+   Expressão que verifica se uma condição é verdadeira (`true`), a partir deste resultado determina se as instruções dentro de seu corpo serão ou não executadas.
+ - else  
+   Informa o que fazer quando a verificação de um condição __if__ for falsa.
+ - elsif  
+   Utilizado quando há a necessidade de verificar mais de uma condição em um __if__.
+ - unless  
+   Enquanto o __if__ é executado quando sua condição é verdadeira, o `unless` ocorre de forma contrária. É executado apenas quando a condição é falsa.
+ - case  
+   Instrução muito parecida com o if. Ele se enquadra muito bem a situações com diversas condições.
 
 ## Interação
 Tipo de estrutura de controle que gerencia quantas vezes o trecho de código será executado.
+
+---
+
+# Collections
+Na programação, __collection__ representa um __conjunto de dados semelhantes__ em uma única unidade.
+
+__Ex:.__ Uma amigo tem uma grande quantidade de livros de programação e a fim de guardá-los de forma organizada os colocou dentro de um caixa com o rótulo "Livros de Programação".
+
+Note que nossa caixa é uma representação dos livros com o conteúdo de Programação. Uma collection é exatamente isso, um local onde concentramos uma quantidade de itens semelhantes. 
+
+Agora, sempre que meu amigo precisar rever um livro de programação, ele saberá onde encontrá-lo!
+
