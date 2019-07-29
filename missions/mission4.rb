@@ -1,19 +1,17 @@
 # Utilizando uma collection do tipo Array, escreva um programa que receba 3 números e no final exiba o resultado de cada um deles elevado a segunda potência.
 
-print "Digite o primeiro número: "
-number1 = gets.chomp.to_i
-print "Digite o segundo número: "
-number2 = gets.chomp.to_i
-print "Digite o terceiro número: "
-number3 = gets.chomp.to_i
+array = []
 
-array = [number1, number2, number3]
+i = 1
 
-puts "#{array}"
-
-new_array = array.map do |a|
-  a**2
+1..3.times do 
+ print "Digite o #{i}º número: "
+ array.push gets.chomp.to_i
+ 
+ i += 1
 end
 
-puts "\n # Os items do array elevados a segunda potência: "
-puts "#{new_array}"
+array.each do |a|
+ result = a ** 2
+ puts "O resultado do número #{a} elevado a segunda potência é #{result}"
+end
