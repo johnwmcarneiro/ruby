@@ -229,3 +229,31 @@ Agora, sempre que meu amigo precisar rever um livro de programação, ele saber�
 
 ## Bundler
 Para ter controle sobre as depedências de um projeto contamos com uma ferramenta que procura e instala gems chamada Bundler
+
+---
+
+# Programação Orientada a Objetos I
+## POO
+POO (Programação Orientada a Objetos) é um Paradigma de programação criado para lidar com softwares grandes e complexos. É um conceito seguido não só pelo Ruby, mas também por várias outras linguagens de programação como Java, Python, C++, etc.
+
+Sua estrutura é definida por 4 pilares:  
+__Abstração__ => ação de abstrair uma entidade do mundo real e transformá-la em uma classe.
+
+__Encapsulamento__ => ato de dividir um programa em diversas partes tornando-o flexível, fácil de modificar e incluir novas funcionalidades.
+
+__Herança__ => habilidade de criar um Classe com características de outra existente. A herança prove o re-uso e reaproveitamento de código.
+
+__Poliformismo__ => capacidade de utilizar um método de diferentes formas para diferentes Objetos.
+
+## Objeto
+Por definição, objeto é toda coisa material que pode ser percebida pelos sentidos, como por exemplo um carro, um livro, um cachorro e etc.
+
+Na programação um objeto é a representação de um objeto do mundo real.
+
+Em POO chamamos as informações de __attributes__ e os comportamentos de __methods__.
+
+## Classe no Ruby
+Uma classe é definida pela palavra __class__ seguida de seu __Nome__, e finalizada pela palavra __end__.
+
+O nome de uma classe deve sempre começar com letra maiúscula. Para nomes compostos utilize o padrão __CamelCase__.
+

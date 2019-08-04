@@ -14,5 +14,4 @@ numbers.each do |key, value|
  end
 end
 
-puts numbers
 puts "O maior número é o da chave #{result[0]} com o valor #{result[1]}"
