@@ -205,3 +205,27 @@ Note que nossa caixa é uma representação dos livros com o conteúdo de Progra
 
 Agora, sempre que meu amigo precisar rever um livro de programação, ele saberá onde encontrá-lo!
 
+---
+
+# Métodos e Gems
+
+## Método
+É uma forma de organizar funções específicas de um programa. Caso necessário permite a reutilização de código, ou seja, evita escrever o mesmo código diversas vezes.
+
+## Gems
+É um pacote que oferece funcionalidades a fim de resolver uma necessidade específica de um programa Ruby. Pense como o conceito de __biblioteca__ em outras linguagens de programação.
+
+### Como instalar uma gem
+1 - Para instalar uma __gem__ execute em seu terminal
+``` ruby
+    gem install gem_name
+```
+
+### Como desistalar uma gem
+1 - Para desistalar uma gem utilize o comando
+``` ruby
+    gem uninstall gem_name
+```
+
+## Bundler
+Para ter controle sobre as depedências de um projeto contamos com uma ferramenta que procura e instala gems chamada Bundler
