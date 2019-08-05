@@ -460,7 +460,7 @@ Perceba que você executou um block dentro de uma lambda
 ```
 
 
-__Argumentos__
+__Argumentos__  
 1 - Diferente de blocks, você pode passar mais de uma lambda de um método
 ``` ruby
     def foo(firts_lambda, second_lambda)
