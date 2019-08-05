@@ -194,8 +194,6 @@ Tipo de estrutura de controle que executa um trecho de código dependendo do res
 ## Interação
 Tipo de estrutura de controle que gerencia quantas vezes o trecho de código será executado.
 
----
-
 # Collections
 Na programação, __collection__ representa um __conjunto de dados semelhantes__ em uma única unidade.
 
@@ -204,8 +202,6 @@ __Ex:.__ Uma amigo tem uma grande quantidade de livros de programação e a fim 
 Note que nossa caixa é uma representação dos livros com o conteúdo de Programação. Uma collection é exatamente isso, um local onde concentramos uma quantidade de itens semelhantes. 
 
 Agora, sempre que meu amigo precisar rever um livro de programação, ele saberá onde encontrá-lo!
-
----
 
 # Métodos e Gems
 
@@ -230,9 +226,7 @@ Agora, sempre que meu amigo precisar rever um livro de programação, ele saber�
 ## Bundler
 Para ter controle sobre as depedências de um projeto contamos com uma ferramenta que procura e instala gems chamada Bundler
 
----
-
-# Programação Orientada a Objetos I
+# Programação Orientada a Objetos
 ## POO
 POO (Programação Orientada a Objetos) é um Paradigma de programação criado para lidar com softwares grandes e complexos. É um conceito seguido não só pelo Ruby, mas também por várias outras linguagens de programação como Java, Python, C++, etc.
 
@@ -337,3 +331,146 @@ _Ex:._
 
 ## Constructores
 Outra questão importante é que toda vez que a instância de uma classe é criada, o Ruby procura por um método chamado initialize. Você pode criar este método para especificar valores padrões durante a construção da classe.
+
+# Ruby Avançado
+## Blocks
+Um bloco pode ser entendido como uma função anônima, ou seja, uma função sem nome. É difinido entre `do..end` ou `colchetes` e da mesma forma que os métodos que você viu até agora, pode receber parâmetros para sua execução.
+
+1 - Utilize barras verticais para passar parâmetros para um bloco  
+``` ruby
+    sum = 0
+    numbers = [5, 10, 5]
+    numbers.each {|numbers| sum += number }
+    puts sum
+```
+
+2 - Em blocos que ocupam várias linhas, faça uso do __do..end__  
+``` ruby
+    foo = {2 => 3, 4 => 5}
+
+    foo.each do |key, value|
+      puts "key = #{key}"
+      puts "value = #{value}"
+      puts "key * value = #{key * value}"
+      puts '---'
+    end
+```
+
+3 - Um bloco pode ser passado como argumento implícito de um método.  
+Depois, para chamar dentro do método o bloco que foi passado utilize a palavra __yield__.  
+``` ruby
+    def foo
+      # Call the black
+      yield
+      yield
+    end
+
+    foo { puts "Exec the block }
+```
+
+Perceba que ao chamar o método, o bloco será executado duas vezes.
+
+4 - E se o bloco for opcional?  
+O ruby oferece um método chamado __block_given?__ para verificar se o bloco foi passado como argumento.
+``` ruby
+    def foo
+      if block_given?
+        # Call the block
+        yield
+      else
+        puts "Sem parâmetro de tipo bloco"
+      end
+    end
+
+    foo
+    foo { puts "Com parâmetro do tipo bloco"}
+```
+
+Note que você criou um método que executa um trecho de código se o bloco for passado como argumento e outro trecho caso não seja.
+
+5 - Outra forma de receber blocos como parâmetro é utilizar o símbolo __&__  
+_Ex:._  
+``` ruby
+    def foo(name, &block)
+      @name = name
+      block.call
+    end
+
+    foo('Leonardo') {puts "Hellow #{@name}}
+```
+
+Para executar o bloco recebido desta forma é necessário apenas utilizar o nome do bloco acompanhado pelo método __call__.
+
+Outra dica importante é sempre deixar o __&nome_do_bloco__ como último parâmetro a ser recebido pelo método.
+
+6 - Você também pode passar um bloco que ocupa várias linhas como parâmetro
+``` ruby
+    def foo(numbers, &block)
+      if block_given?
+        numbers.each do |key, value|
+          block.call(key, value)
+        end
+      end
+    end
+
+    numbers = { 2 => 2, 3 => 3, 4 => 4}
+
+    foo(numbers) do |key, value|
+      puts "#{key} * #{value} = #{key * value}"
+      puts "#{key} + #{value} = #{key + value}"
+      puts "---"
+    end
+```
+
+Ao chamar o bloco você passou os parâmetros que ele precisa para ser executado.
+
+## Lambda
+1 - Você pode abreviar a declaração de uma lambda da seguinte forma
+``` ruby
+    first_lambda = -> { puts "my first lambda"}
+    first_lambda.call 
+```
+
+2 - Um lambda também pode receber parâmetros para sua execução
+``` ruby
+    first_lambda = -> (names){ names.each { |name |puts name} }
+
+    names = ["joão", "maria", "pedro"]
+
+    first_lambda.call(names)
+```
+Perceba que você executou um block dentro de uma lambda
+
+3 - Em lambdas que ocupam várias linhas, não declare a lambda de forma abreviada e utilize o __do..end__
+``` ruby
+    my_lambda = lambda do |numbers|
+      index = 0
+      puts 'Número atual + Próximo número'
+      numbers.each do |number|
+        return if numbers[index] == numbers.last
+        puts "(#{numbers[index]}) + (#{numbers[index + 1]})"
+        puts numbers[index] + numbers[index + 1]
+        index += 1
+      end
+    end
+
+    numbers = [1, 2, 3, 4]
+
+    my_lambda.call(numbers)
+```
+
+
+__Argumentos__
+1 - Diferente de blocks, você pode passar mais de uma lambda de um método
+``` ruby
+    def foo(firts_lambda, second_lambda)
+      first_lambda.call
+      second_lambda.call
+    end
+
+    first_lambda = lambda { puts "my first lambda"}
+    second_lambda = lambda { puts "my second lamda"}
+
+    foo(first_lambda, second_lambda)
+```
+
