@@ -223,7 +223,7 @@ Agora, sempre que meu amigo precisar rever um livro de programação, ele saber�
 
 ### Como desistalar uma gem
 1 - Para desistalar uma gem utilize o comando
-``` ruby
+``` terminal
     gem uninstall gem_name
 ```
 
@@ -257,3 +257,83 @@ Uma classe é definida pela palavra __class__ seguida de seu __Nome__, e finaliz
 
 O nome de uma classe deve sempre começar com letra maiúscula. Para nomes compostos utilize o padrão __CamelCase__.
 
+## Escopo das Variáveis
+__Variável Local__ => é declarada com a primeira letra de seu nome sendo um letra minúscula ou sublinhado. Pode ser `acessada apenas onde foi criada`. Por exemplo, se você definir uma variável local dentro de uma classe ela estará disponível apenas dentro desta classe, se a definiu dentro de um método conseguirá acessá-la apenas dentro deste método e assim por diante.  
+_Ex:._
+``` ruby
+    class Bar
+      def foo
+        # Pode ser definida como local ou _local
+        local = 'local é acessada apenas dentro deste método'
+        print local
+      end
+    end
+
+    bar = Bar.new
+    bar.foo
+```
+
+__Variável Global__ => Declara com o prefixo `$`. Pode ser `acessada em qualquer lugar do programa`. Seu uso é FORTEMENTE DESENCORAJADO pois além de ser visível em qualquer lugar do código, também pode ser alterada em inúmeros locais ocasionando dificuldades no rastreamento de bugs.  
+_Ex:._
+``` ruby
+    class Bar
+      def foo
+        $global = 0
+        puts $global
+      end
+    end
+
+    class Baz
+      def qux
+        $global += 1
+        puts $global
+      end
+    end
+
+    bar = Bar.new
+    baz = Baz.new
+    bar.foo
+    baz.qux
+    puts $global
+```
+
+__Variável de Classe__ => é declarada com prefixo `@@`. Pode ser acessada em qualquer lugar da classe onde foi declarada e seu valor é `compartilhado` entre todas as `instâncias de sua classe`.  
+_Ex:._  
+``` ruby
+    class User
+      @@user_count = 0
+      def add(name)
+        puts "User #{name} adicionado"
+        @@user_count += 1
+        puts @@user_count
+      end
+    end
+
+    first_user = User.new
+    first_user.add('João')
+
+    second_user = User.new
+    second_user.add ('Mario')
+```
+
+__Variável de Instância__ => seu nome começa comm o símbolo `@`. Semelhante a variável de classe, tendo como única diferença o valor que `não é compartilhado` entre todas as `instâncias de sua classe`.  
+_Ex:._
+``` ruby
+    class User
+      def add(name)
+        @name = name
+        puts "User adicionado"
+        hello
+      end
+
+      def hello
+        puts "Seja bem vindo, #{@name}"
+      end
+    end
+    
+    user = User.new
+    user.add('João')
+```
+
+## Constructores
+Outra questão importante é que toda vez que a instância de uma classe é criada, o Ruby procura por um método chamado initialize. Você pode criar este método para especificar valores padrões durante a construção da classe.
