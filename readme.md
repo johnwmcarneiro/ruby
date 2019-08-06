@@ -474,3 +474,54 @@ __Argumentos__
     foo(first_lambda, second_lambda)
 ```
 
+## Regex
+Abreviatura de __Regular Expressions__ (Expressões Regulares), regex é uma sequência de caracteres especiais que nos ajudam a identificar (e selecionar) padrões de caracteres em strings.
+
+## Maneiras de criar um Regex
+1 - Utilizando o formato __/.../__  
+_Ex:._  
+``` terminal
+    /expressao/
+```
+
+2 - Atráves do formato __%r{...}__  
+_Ex:._
+``` ruby
+    %r{expressao}
+```
+
+3 - Utilizando um Constructor atráves do Regexp.new('...')  
+_Ex:._ 
+``` ruby
+    Regexp.new('expressao')
+```
+
+## Casamentos de Padrões
+É uma ato que verifica a presença de padrões em um cadeia de caracteres.
+
+Pode ser realizado através do operador __=~__ ou do método __match__
+
+__Operador =~__  
+1 - O operador __=~__ retorna o offset, ou seja a distância entre o começo da string até o local onde ocorre o casamento de padrão especificado na expressão.
+
+``` ruby
+    /by/ =~ 'ruby'
+```
+
+2 - A mesma comparação também pode ser realizada iniciando pela string
+``` ruby
+    'ruby' =~ /by/ 
+```
+
+3 - Quando não ocorre o casamento de padrão, o resultado é __nulo__
+``` ruby
+    'ruby' =~ /rails/
+```
+
+## Método match
+1 - Retorna um objeto do tipo __MatchData__, contendo todos os resultados do casamento de padrão.
+``` ruby
+    phrase = "Hellow, how are you?"
+
+    match_data = /how/.match(phrase)
+```
