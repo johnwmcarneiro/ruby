@@ -10,3 +10,5 @@ names = ['João', 'Alfredo', 'Juca']
 3.times do |index|
   puts names[index]
 end
+
+3.times { |i| puts names[i] }
